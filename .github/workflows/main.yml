@@ -25,8 +25,8 @@ jobs:
       - name: Build the Docker image
         run:  docker build ./app -t ankush2642/docker-test-login:latest
 
-      # - name: Push the Docker image
-      #   run: docker push your-dockerhub-username/docker-test-login:latest
+      - name: Push the Docker image
+        run: docker push ankush2642/docker-test-login:latest
 
 
 
