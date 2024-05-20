@@ -25,14 +25,16 @@ jobs:
       - name: Print Docker config
         run: cat ~/.docker/config.json
 
-      - name: Verify Docker login
-        run: docker info
-
       - name: Build and push
         uses: docker/build-push-action@v2
         with:
+          context: .
+          file: .app/Dockerfile # Ensure this path is correct
           push: true
           tags: your-dockerhub-username/docker-test-login:latest
+
+      - name: Verify Docker login
+        run: docker info
 
       # - name: Build the Docker image
       #   run:  docker build ./app -t your-dockerhub-username/docker-test-login:latest
