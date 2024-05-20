@@ -17,13 +17,17 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Log in to Docker Hub
-        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+        run: echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+        env:
+          DOCKER_USERNAME: ankush2642
+          DOCKER_PASSWORD: dckr_pat_F08gPGVU40KpYSP4-77lSbPaX-8
 
       - name: Build the Docker image
-        run: docker build ./app -t your-dockerhub-username/your-repo-name:latest
+        run:  docker build ./app -t your-dockerhub-username/your-repo-name:latest
 
       - name: Push the Docker image
         run: docker push your-dockerhub-username/your-repo-name:latest
+
 
 
 # name: Docker Login
