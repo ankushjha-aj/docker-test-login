@@ -23,10 +23,10 @@ jobs:
           DOCKER_PASSWORD: dckr_pat_F08gPGVU40KpYSP4-77lSbPaX-8
 
       - name: Build the Docker image
-        run:  docker build ./app -t your-dockerhub-username/your-repo-name:latest
+        run:  docker build ./app -t your-dockerhub-username/docker-test-login:latest
 
       - name: Push the Docker image
-        run: docker push your-dockerhub-username/your-repo-name:latest
+        run: docker push your-dockerhub-username/docker-test-login:latest
 
 
 
